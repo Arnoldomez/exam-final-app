@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-input 
+        label="Nombre" 
+        labelPlacement="floating"
+        formControlName="nombre">
+      </ion-input>
+    </ion-item>
+    <p *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red">
+      Nombre requerido
+    </p>
+
+    <ion-item>
+      <ion-input 
+        label="Apellido" 
+        labelPlacement="floating"
+        formControlName="apellido">
+      </ion-input>
+    </ion-item>
+    <p *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" style="color:red">
+      Apellido requerido
+    </p>
+
+    <ion-item>
+      <ion-input 
+        label="Email" 
+        labelPlacement="floating"
+        type="email"
+        formControlName="email">
+      </ion-input>
+    </ion-item>
+    <p *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
+      Email inválido
+    </p>
+
+    <ion-button expand="full" (click)="enviar()" [disabled]="form.invalid">
+      Enviar
+    </ion-button>
+
+  </form>
+
+</ion-content>
+
